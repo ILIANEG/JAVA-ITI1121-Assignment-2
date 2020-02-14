@@ -1,4 +1,4 @@
-
+import java.util.Random;
 
 public class TicTacToe{
 
@@ -52,11 +52,31 @@ public class TicTacToe{
             columns  = 3;
             win = 3;
         }
-        
-        Player[] players;
-
-        // YOUR CODE HERE  
-
     }
+   private playTheGame()
+   {
+      game = new TicTacToeGame(lines, columns, win)
+      HumanPlayer humanPlayer = new HumanPlayer;
+      ComputerRandomPlayer computerPlayer = new ComputerRandomPlayer;
+      Player[] players = {humanPlayer, computerPlayer};
+      Random randomIndex = new Random();
+      int playerIndex = randomIndex.nextInt(2);
+      while(game.gameState == GameState.)
+      {
+         
+      }
+       
+   }
+   private cycleIndex(int curIndex)
+   {
+      if(currIndex == 1)
+      {
+         return 0;
+      }
+      else
+      {
+         return 1;
+      }
+   }
 
 }
