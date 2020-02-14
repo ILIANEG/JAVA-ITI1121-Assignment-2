@@ -22,7 +22,7 @@ public class HumanPlayer implements Player
     }
     else
     {
-      System.out.println("The game can not be played")
+      System.out.println("ERROR: The game can not be played")
     }
   }
 }
