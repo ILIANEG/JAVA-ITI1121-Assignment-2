@@ -1,13 +1,13 @@
 import java.util.Random;
 
-public class HumanPlayer implements Player
+public class ComputerRandomPlayer implements Player
 {
-  private int[] 
   public void play(TicTacToeGame game)
   {
-    if(game.gameState == GameState.PLAYING)
+    if(game.getGameState() == GameState.PLAYING)
     {
-      boolean played = False;
+      System.out.println("Computer Player's turn");
+      boolean played = false;
       while(!played)
       {
         Random randomIndex = new Random();
@@ -15,13 +15,13 @@ public class HumanPlayer implements Player
         if(game.valueAt(indexToPlay) == CellValue.EMPTY)
         {
           game.play(indexToPlay);
-          played = True;
+          played = true;
         }
       }
     }
     else
     {
-      System.out.println("ERROR: The game can not be played")
+      System.out.println("ERROR: The game can not be played");
     }
   }
 }

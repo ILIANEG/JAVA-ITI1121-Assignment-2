@@ -1,28 +1,30 @@
-import java.util.Scanner;
+import java.io.Console;
 
 public class HumanPlayer implements Player
 {
   public void play(TicTacToeGame game)
   {
-    if(game.gameState == GameState.PLAYING)
+    if(game.getGameState() == GameState.PLAYING)
     {
+      System.out.println("Human Player's turn");
+      System.out.println(game.toString());
       if(game.getLevel() % 2 == 0)
       {
-        String message = "X to play: "
+        System.out.print("X to play: ");
       }
       else
       {
-        String message = "O to play: "
+        System.out.print("O to play: ");
       }
-      Scanner input = new Scanner(System.in);
-      System.out.print(message);
-      int toPlay = reader.nextInt();
-      reader.close();
-      game.play(toPlay);
+      Console console = System.console();
+      console = System.console();
+			String StringToPlay = console.readLine();
+      int toPlay = Integer.parseInt(StringToPlay);
+      game.play(toPlay - 1);
     }
     else
     {
-      System.out.println("ERROR: The game can not be played")
+      System.out.println("ERROR: The game can not be played");
     }
   }
 }
