@@ -78,5 +78,33 @@ public class TicTacToe{
          return 1;
       }
    }
-
+   private String printTheMessage(TicTacToeGame currentGame)
+   {
+      if(currentGame.getGameState() == GameState.PLAYING)
+      {
+         if(currentGame.getLevel() % 2 == 0)
+         {
+            System.out.print("X to play: ");
+         }
+         else
+         {
+            System.out.print("O to play: ");
+         }
+      }
+      else
+      {
+         if(currentGame.getGameState() == GameState.XWIN)
+         {
+            System.out.println("Result: XWIN");
+         }
+         else if(currentGame.getGameState() == GameState.OWIN)
+         {
+            System.out.println("Result: OWIN");
+         }
+         else
+         {
+            System.out.println("Result: DRAWN");
+         }
+      }
+   }
 }
