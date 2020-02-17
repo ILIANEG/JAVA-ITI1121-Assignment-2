@@ -102,11 +102,19 @@ public class TicTacToeGame {
     *  the index of the next move.
   	*/
 
-	public TicTacToeGame(TicTacToeGame base, int next){
-
-
-		// YOUR CODE HERE
-
+	public TicTacToeGame(TicTacToeGame base, int next)
+	{
+		this.lines = base.lines;
+		this.columns = base.columns;
+		this.sizeWin = base.sizeWin;
+		this.level = base.getLevel();
+		this.gameState = base.getGameState();
+		board = new CellValue[columns * lines];
+		for(int i = 0; i < columns * lines; i++)
+		{
+			board[i] = base.valueAt(i);
+		}
+		play(next);
 	}
 
 
@@ -119,10 +127,23 @@ public class TicTacToeGame {
     *  the TicTacToeGame instance to be compared with this one
   	*/
 	public boolean equals(TicTacToeGame other) {
-
-		// YOUR CODE HERE
-
+		boolean result = false;
+		if(this.lines == other.lines && this.columns == other.columns
+				&& this.sizeWin == other.sizeWin && this.getGameState() == other.getGameState()
+				&& this.getLevel() == other.getLevel())
+			{
+			result = true;
+			for(int i = 0; i < columns * lines; i++)
+			{
+				if(this.valueAt(i) != other.valueAt(i))
+				{
+					result = false;
+				}
+			}
+		}
+		return result;
 	}
+
 
    /**
 	* getter for the variable level
