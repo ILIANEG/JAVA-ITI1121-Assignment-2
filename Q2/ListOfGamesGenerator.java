@@ -30,17 +30,12 @@ public class ListOfGamesGenerator {
 			if(branch.isEmpty() == false)
 			{
 				allGames.add(branch);
-				System.out.println(allGames.size());
 			}
 			else
 			{
 				allBranchesClosed = true;
 			}
 			branchIndex++;
-		}
-		for(TicTacToeGame g : allGames.get(allGames.size() - 1))
-		{
-			System.out.println(g.toString());
 		}
 		return allGames;
 	}
