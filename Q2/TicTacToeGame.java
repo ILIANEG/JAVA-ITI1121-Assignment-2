@@ -126,18 +126,24 @@ public class TicTacToeGame {
    	* @param other
     *  the TicTacToeGame instance to be compared with this one
   	*/
-	public boolean equals(TicTacToeGame other) {
+	public boolean equals(Object otherObj) {
+		if (obj == null || obj.getClass() != this.getClass()) 
+		{
+			return false;
+		}
+		TicTacToeGame other = (TicTacToeGame) otherObj;
 		boolean result = false;
-		if(this.lines == other.lines && this.columns == other.columns
-				&& this.sizeWin == other.sizeWin && this.getGameState() == other.getGameState()
-				&& this.getLevel() == other.getLevel())
-			{
+		if(lines == other.lines && columns == other.columns
+				&& sizeWin == other.sizeWin && getGameState() == other.getGameState()
+				&& getLevel() == other.getLevel())
+		{
 			result = true;
-			for(int i = 0; i < columns * lines; i++)
+			for(int i = 0; i < columns * lines && result; i++)
 			{
-				if(this.valueAt(i) != other.valueAt(i))
+				if(valueAt(i) != other.valueAt(i))
 				{
 					result = false;
+					break;
 				}
 			}
 		}
