@@ -127,7 +127,7 @@ public class TicTacToeGame {
     *  the TicTacToeGame instance to be compared with this one
   	*/
 	public boolean equals(Object otherObj) {
-		if (obj == null || obj.getClass() != this.getClass()) 
+		if (obj == null || otherObj.getClass() != this.getClass()) 
 		{
 			return false;
 		}
