@@ -1,8 +1,6 @@
 import java.util.LinkedList;
 
 public class ListOfGamesGenerator {
-
-
    /**
 	* generates all different games for the specified
 	* parameters. Each game is recorded only once.
@@ -45,21 +43,13 @@ public class ListOfGamesGenerator {
 		LinkedList<TicTacToeGame> branch = new LinkedList<TicTacToeGame>();
 		for(int i = 0; i < g.size(); i++)
 		{
-			for(int c = 0; c < g.get(i).lines * g.get(i).columns; c++)
+			TicTacToeGame curGame = g.get(i);
+			for(int c = 0; c < curGame.lines * curGame.columns && curGame.getGameState() == GameState.PLAYING; c++)
 			{
-				if(g.get(i).getGameState() == GameState.PLAYING && g.get(i).valueAt(c) == CellValue.EMPTY)
+				if(curGame.valueAt(c) == CellValue.EMPTY)
 				{
-					boolean inList = false;
-					TicTacToeGame gameToAdd = new TicTacToeGame(g.get(i), c);
-					for(int a = 0; a < branch.size(); a++)
-					{
-						if(gameToAdd.equals(branch.get(a)))
-						{
-							inList = true;
-							break;
-						}
-					}
-					if(! inList)
+					TicTacToeGame gameToAdd = new TicTacToeGame(curGame, c);
+					if(! branch.contains(gameToAdd))
 					{
 						branch.add(gameToAdd);
 					}
