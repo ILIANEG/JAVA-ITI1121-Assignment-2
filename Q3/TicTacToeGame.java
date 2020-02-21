@@ -114,7 +114,10 @@ public class TicTacToeGame {
 		{
 			board[i] = base.valueAt(i);
 		}
-		play(next);
+		if(! next = null)
+		{
+			play(next);
+		}
 	}
 
 
