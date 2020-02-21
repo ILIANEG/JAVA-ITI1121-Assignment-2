@@ -119,6 +119,15 @@ public class TicTacToeGame {
 			play(next);
 		}
 	}
+	public TicTacToeGame(TicTacToeGame base, CellValue[] board)
+	{
+				this.lines = base.lines;
+		this.columns = base.columns;
+		this.sizeWin = base.sizeWin;
+		this.level = base.getLevel();
+		this.gameState = base.getGameState();
+		this.board = board; 
+	}
 
 
    /**
