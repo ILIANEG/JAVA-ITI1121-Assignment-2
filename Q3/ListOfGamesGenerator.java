@@ -73,7 +73,7 @@ public class ListOfGamesGenerator {
 		//CREATE AND IMPLEMENT ALGORYTHM THAT WILL USE boardOfGame TO POPULATE revRowBoard
 		//CODE HERE
 		
-		//If your revRowBoard is good, my new constructor (line #123 in TicTacToeGame.java) should take care about creating new game;
+		//If your revRowBoard is good, my new constructor (line #120 in TicTacToeGame.java) should take care about creating new game;
 		return new TicTacToeGame(game, revRowBoard);
 	}
 	
