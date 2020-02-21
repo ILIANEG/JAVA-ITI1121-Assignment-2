@@ -116,6 +116,16 @@ public class TicTacToeGame {
 		}
 		play(next);
 	}
+	
+	public TicTacToeGame(TicTacToeGame base, CellValue[] board)
+	{
+		this.lines = base.lines;
+		this.columns = base.columns;
+		this.sizeWin = base.sizeWin;
+		this.level = base.getLevel();
+		this.gameState = base.getGameState();
+		this.board = board; 
+	}
 
 
    /**
@@ -126,6 +136,27 @@ public class TicTacToeGame {
    	* @param other
     *  the TicTacToeGame instance to be compared with this one
   	*/
+	public boolean equals(TicTacToeGame other)
+	{
+		TicTacToeGame other = (TicTacToeGame) otherObj;
+		boolean result = false;
+		if(lines == other.lines && columns == other.columns
+				&& sizeWin == other.sizeWin && getGameState() == other.getGameState()
+				&& getLevel() == other.getLevel())
+		{
+			result = true;
+			for(int i = 0; i < columns * lines && result; i++)
+			{
+				if(valueAt(i) != other.valueAt(i))
+				{
+					result = false;
+					break;
+				}
+			}
+		}
+		return result;
+	}
+	
 	public boolean equals(Object otherObj) {
 		if (otherObj == null || otherObj.getClass() != this.getClass()) 
 		{
