@@ -58,4 +58,36 @@ public class ListOfGamesGenerator {
 		}
 		return branch;
 	}
+	
+	//Method creates TicTaToeGame with reversedRows
+	private TicTacToeGame reverseRows(TicTacToeGame game)
+	{
+		//Creating boradOfGame array that stores the board of passed in game
+		CellValue[] boardOfGame = new CellValue[game.lines * game.columns];
+		for(int i = 0; i < boardOfGame.length; i++)
+		{
+			boardOfGame[i] = game.valueAt(i);
+		}
+		//You need to populate this board in such way that the rows are reversed (1,2,3 -> 3,2,1)
+		CellValue[] revRowBoard = new CellValue[game.lines * game.columns];
+		//CREATE AND IMPLEMENT ALGORYTHM THAT WILL USE boardOfGame TO POPULATE revRowBoard
+		//CODE HERE
+		return new TicTacToeGame(game, revRowBoard);
+	}
+	
+	//Method creates TicTacToe rith reversedColumns
+	private TicTacToeGame reverseColumns(TicTacToeGame game)
+	{
+		//Creating boradOfGame array that stores the board of passed in game
+		CellValue[] boardOfGame = new CellValue[game.lines * game.columns];
+		for(int i = 0; i < boardOfGame.length; i++)
+		{
+			boardOfGame[i] = game.valueAt(i);
+		}
+		//You need to populate this board in such way that the rows are reversed (1,2,3 -> 3,2,1)
+		CellValue[] revRowBoard = new CellValue[game.lines * game.columns];
+		//CREATE AND IMPLEMENT ALGORYTHM THAT WILL USE boardOfGame TO POPULATE revRowBoard
+		//CODE HERE
+		return new TicTacToeGame(game, revRowBoard);
+	}
 }
