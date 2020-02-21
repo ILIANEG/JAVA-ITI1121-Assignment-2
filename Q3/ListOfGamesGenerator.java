@@ -59,7 +59,7 @@ public class ListOfGamesGenerator {
 		return branch;
 	}
 	
-	//Method creates TicTaToeGame with reversedRows
+	//Method creates TicTaToeGame with reversed rows
 	private TicTacToeGame reverseRows(TicTacToeGame game)
 	{
 		//Creating boradOfGame array that stores the board of passed in game
@@ -68,14 +68,16 @@ public class ListOfGamesGenerator {
 		{
 			boardOfGame[i] = game.valueAt(i);
 		}
-		//You need to populate this board in such way that the rows are reversed (1,2,3 -> 3,2,1)
+		//You need to populate this board in such way that the rows are reversed order
 		CellValue[] revRowBoard = new CellValue[game.lines * game.columns];
 		//CREATE AND IMPLEMENT ALGORYTHM THAT WILL USE boardOfGame TO POPULATE revRowBoard
 		//CODE HERE
+		
+		//If your revRowBoard is good, my new constructor (line #123 in TicTacToeGame.java) should take care about creating new game;
 		return new TicTacToeGame(game, revRowBoard);
 	}
 	
-	//Method creates TicTacToe rith reversedColumns
+	//Method creates TicTacToe with reversed columns
 	private TicTacToeGame reverseColumns(TicTacToeGame game)
 	{
 		//Creating boradOfGame array that stores the board of passed in game
@@ -84,10 +86,11 @@ public class ListOfGamesGenerator {
 		{
 			boardOfGame[i] = game.valueAt(i);
 		}
-		//You need to populate this board in such way that the rows are reversed (1,2,3 -> 3,2,1)
-		CellValue[] revRowBoard = new CellValue[game.lines * game.columns];
-		//CREATE AND IMPLEMENT ALGORYTHM THAT WILL USE boardOfGame TO POPULATE revRowBoard
+		//You need to populate this board in such way that the columns are reversed order
+		CellValue[] revColBoard = new CellValue[game.lines * game.columns];
+		//CREATE AND IMPLEMENT ALGORYTHM THAT WILL USE boardOfGame TO POPULATE revColBoard
 		//CODE HERE
-		return new TicTacToeGame(game, revRowBoard);
+		
+		return new TicTacToeGame(game, revColBoard);
 	}
 }
