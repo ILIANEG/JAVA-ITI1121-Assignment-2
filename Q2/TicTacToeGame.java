@@ -102,6 +102,7 @@ public class TicTacToeGame {
     *  the index of the next move.
   	*/
 
+
 	public TicTacToeGame(TicTacToeGame base, int next)
 	{
 		this.lines = base.lines;
@@ -117,6 +118,7 @@ public class TicTacToeGame {
 		play(next);
 	}
 
+	//Initialization of base parameters:
 	public TicTacToeGame(TicTacToeGame base, CellValue[] board)
 	{
 		this.lines = base.lines;

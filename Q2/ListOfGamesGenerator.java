@@ -22,17 +22,11 @@ public class ListOfGamesGenerator {
 		allGames.get(0).add(game);
 		boolean allBranchesClosed = false;
 		int branchIndex = 0;
-		while(!allBranchesClosed)
+		while (!allBranchesClosed)
 		{
 			LinkedList<TicTacToeGame> branch = nextLevelBranch(allGames.get(branchIndex));
-			if(branch.isEmpty() == false)
-			{
-				allGames.add(branch);
-			}
-			else
-			{
-				allBranchesClosed = true;
-			}
+			if (branch.isEmpty() == false) allGames.add(branch);
+			else allBranchesClosed = true;
 			branchIndex++;
 		}
 		return allGames;
@@ -41,18 +35,15 @@ public class ListOfGamesGenerator {
 	private static LinkedList<TicTacToeGame> nextLevelBranch(LinkedList<TicTacToeGame> g)
 	{
 		LinkedList<TicTacToeGame> branch = new LinkedList<TicTacToeGame>();
-		for(int i = 0; i < g.size(); i++)
+		for (int i = 0; i < g.size(); i++)
 		{
 			TicTacToeGame curGame = g.get(i);
-			for(int c = 0; c < curGame.lines * curGame.columns && curGame.getGameState() == GameState.PLAYING; c++)
+			for (int c = 0; c < curGame.lines * curGame.columns && curGame.getGameState() == GameState.PLAYING; c++)
 			{
 				if(curGame.valueAt(c) == CellValue.EMPTY)
 				{
 					TicTacToeGame gameToAdd = new TicTacToeGame(curGame, c);
-					if(! branch.contains(gameToAdd))
-					{
-						branch.add(gameToAdd);
-					}
+					if (! branch.contains(gameToAdd)) branch.add(gameToAdd);
 				}
 			}
 		}
