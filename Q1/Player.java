@@ -1,4 +1,4 @@
 interface Player
 {
-  public void play(TicTacToeGame game);
+	public void play(TicTacToeGame game);
 }
