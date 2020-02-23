@@ -56,14 +56,16 @@ public class ListOfGamesGenerator {
 				}
 			}
 		}
+//		System.out.println("/*"+reverseRows().toString()+"*/");
 		return branch;
 	}
-	
+///////////////////////////////////////////////////////////////////////////////////////////////////	
 	//Method creates TicTaToeGame with reversed rows
 	private TicTacToeGame reverseRows(TicTacToeGame game)
 	{
 		//Creating boradOfGame array that stores the board of passed in game
 		CellValue[] boardOfGame = new CellValue[game.lines * game.columns];
+		int count = 0;
 		for(int i = 0; i < boardOfGame.length; i++)
 		{
 			boardOfGame[i] = game.valueAt(i);
@@ -71,7 +73,11 @@ public class ListOfGamesGenerator {
 		//You need to populate this board in such way that the rows are reversed order
 		CellValue[] revRowBoard = new CellValue[game.lines * game.columns];
 		//CREATE AND IMPLEMENT ALGORYTHM THAT WILL USE boardOfGame TO POPULATE revRowBoard
-		//CODE HERE
+		for (int a = game.lines - 1; a > -1; a--) for (int b = 0; b < game.columns; b++)
+		{
+			revRowBoard[count] = boardOfGame[game.lines*a+b];
+			count++;
+		}
 		
 		//If your revRowBoard is good, my new constructor (line #120 in TicTacToeGame.java) should take care about creating new game;
 		return new TicTacToeGame(game, revRowBoard);
@@ -82,6 +88,7 @@ public class ListOfGamesGenerator {
 	{
 		//Creating boradOfGame array that stores the board of passed in game
 		CellValue[] boardOfGame = new CellValue[game.lines * game.columns];
+		int count = 0;
 		for(int i = 0; i < boardOfGame.length; i++)
 		{
 			boardOfGame[i] = game.valueAt(i);
@@ -89,8 +96,16 @@ public class ListOfGamesGenerator {
 		//You need to populate this board in such way that the columns are reversed order
 		CellValue[] revColBoard = new CellValue[game.lines * game.columns];
 		//CREATE AND IMPLEMENT ALGORYTHM THAT WILL USE boardOfGame TO POPULATE revColBoard
-		//CODE HERE
-		
+		for (int e = 0; e < boardOfGame.length; e++)
+		{
+			revColBoard[e] = boardOfGame[e];
+		}
+
+		for (int c = 0; c < game.columns; c++) for (int d = game.lines - 1; d > -1; d--)
+		{
+			revColBoard[count] = boardOfGame[game.lines*c+d];
+			count++;
+		}
 		return new TicTacToeGame(game, revColBoard);
 	}
 }
