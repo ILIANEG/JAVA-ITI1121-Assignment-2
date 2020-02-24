@@ -20,7 +20,7 @@ public class HumanPlayer implements Player
 				console = System.console();
 				String StringToPlay = console.readLine();
 				int toPlay = Integer.parseInt(StringToPlay);
-				if(game.valueAt(toPlay - 1) == CellValue.EMPTY && 0 < toPlay && toPlay < game.lines * game.columns )
+				if(toPlay < game.lines * game.columns && game.valueAt(toPlay - 1) == CellValue.EMPTY && 0 < toPlay)
 				{
 					game.play(toPlay - 1);
 					played = true;
