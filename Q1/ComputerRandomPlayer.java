@@ -1,13 +1,16 @@
 import java.util.Random;
 
+
 public class ComputerRandomPlayer implements Player
-{
+{	
+	//implements method play() for Human Player, if current game can be played
 	public void play(TicTacToeGame game)
 	{
 		if (game.getGameState() == GameState.PLAYING)
 		{
-			System.out.println("Computer Player's turn");
+			System.out.println("Player 2's turn");
 			boolean played = false;
+			//Randomly playing the non-empty cell
 			while (!played)
 			{
 				Random randomIndex = new Random();
