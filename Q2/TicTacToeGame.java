@@ -102,7 +102,7 @@ public class TicTacToeGame {
     *  the index of the next move.
   	*/
 
-
+	//Constructor that copies state and board of base, then plays the index "next"
 	public TicTacToeGame(TicTacToeGame base, int next)
 	{
 		this.lines = base.lines;
