@@ -65,28 +65,35 @@ public class TicTacToe
 
 		//Intermediate handling of game state:
 		boolean playingRound = true;
+		//Game will be repeated until player will not answer Y/y
 		while(playingRound)
 		{
+			//Creates new game
 			game = new TicTacToeGame(lines, columns, win);
+			//Create 2 new players, computer and human
 			HumanPlayer humanPlayer = new HumanPlayer();
 			ComputerRandomPlayer computerPlayer = new ComputerRandomPlayer();
+			
+			//put players into the "box", shake the "box", get random player
 			Player[] players = {humanPlayer, computerPlayer};
 			Random randomIndex = new Random();
 			int playerIndex = randomIndex.nextInt(2);
+			//playing the game until one won or game is draw
 			while (game.getGameState() == GameState.PLAYING)
 			{
 				players[playerIndex].play(game);
 				if (playerIndex == 1) playerIndex = 0;
 				else playerIndex = 1;
 			}
+			//print result of the game
 			if (game.getGameState() == GameState.XWIN) System.out.println("Result: XWIN");
 			else if (game.getGameState() == GameState.OWIN) System.out.println("Result: OWIN");
 			else System.out.println("Result: DRAWN");
+			//ask human if human want to play again
 			System.out.print("Play again (Y)?: ");
 			Console console = System.console();
 			console = System.console();
 			String answer = console.readLine();
-			System.out.println(answer);
 			if (answer.equals("y") || answer.equals("Y")) playingRound = true;
 			else playingRound = false;
 		}
