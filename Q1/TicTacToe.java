@@ -86,6 +86,8 @@ public class TicTacToe
 				else playerIndex = 1;
 			}
 			//print result of the game
+			System.out.println("Game over");
+			System.out.println(game.toString());
 			if (game.getGameState() == GameState.XWIN) System.out.println("Result: XWIN");
 			else if (game.getGameState() == GameState.OWIN) System.out.println("Result: OWIN");
 			else System.out.println("Result: DRAWN");
