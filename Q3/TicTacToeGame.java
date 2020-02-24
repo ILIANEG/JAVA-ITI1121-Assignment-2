@@ -101,7 +101,8 @@ public class TicTacToeGame {
     * @param next
     *  the index of the next move.
   	*/
-
+	
+	//Constructor that creates a copy of base game, and play the cell under index "next"
 	public TicTacToeGame(TicTacToeGame base, int next)
 	{
 		this.lines = base.lines;
@@ -116,7 +117,9 @@ public class TicTacToeGame {
 		}
 		play(next);
 	}
-
+	
+	//Constructor that creates HYPOTHETICAL game by copying all characteristic of base game and uses custom board
+	//Such constructor is useful ONLY to create syymetrical identities
 	public TicTacToeGame(TicTacToeGame base, CellValue[] board)
 	{
 		this.lines = base.lines;
